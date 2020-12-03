@@ -4,21 +4,18 @@
 #	include	<gtk/gtk.h>
 #	include <stdlib.h>
 
-typedef struct	t_button
+typedef struct	t_game
 {
-	GtkWidget	*bu10;
-	GtkWidget	*bu12;
-	GtkWidget	*bl30;
-	GtkWidget	*bl32;
-	GtkWidget	*bl50;
-	GtkWidget	*bl53;
-	GtkWidget	*r100;
-	GtkWidget	*r105;
-	GtkWidget	*r1510;
-	GtkWidget	*r300;
-	GtkWidget	*r3020;
-	GtkWidget	*leave;
-}		s_button;
+	GtkWidget	*window;
+	GtkWidget	*hbox;
+	GtkWidget	*vbox[4];
+	GtkWidget	*button[14];
+	unsigned int	player;
+	unsigned int	game;
+	unsigned int	pause;
+	long		player1;
+	long		player2;
+}		s_game;
 void	ft_timer(long j1sec, long j2sec);
 #endif
 
