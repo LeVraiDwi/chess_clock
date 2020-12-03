@@ -20,3 +20,26 @@ void	ft_timer(long j1sec, long j2sec)
 		}
 	}
 }
+
+int	ft_compteur(int temps, int tbonus, s_game *game)
+{
+	game->player1 = temps;
+	game->player2 = temps;
+	while (game->game == 1)
+	{
+		while (game->player == 1 && game->player1 && !game->pause)
+		{
+			sleep(1);
+			game->player1--;
+		}
+		if (!game->pause)
+			game->player1 += tbonus;
+		while (game->player == 2 && game->player2 && !game->pause)
+		{
+			sleep(1);
+			game->player2--;
+		}
+		if (!game->pause)
+			game->player2 += tbonus;
+	}
+}
