@@ -43,3 +43,13 @@ int	ft_compteur(int temps, int tbonus, s_game *game)
 			game->player2 += tbonus;
 	}
 }
+
+void	ft_creat_timer(s_game *game)
+{
+	GtkWidget	*label;
+
+	label = 0;
+	label = gtk_label_new("just the two of us");
+	gtk_container_add(GTK_CONTAINER(game->window), label);
+	gtk_widget_show_all(game->window);
+}
