@@ -4,11 +4,11 @@ SRC_PATH = ./src
 
 SRC_NAME =	 box.c button.c game.c\
 		 main.c menu.c timer.c\
-		 remove.c event.c\
+		 remove.c event.c util.c\
 
 CFLAGS = -Wall -Wextra -Werror
 
-GTK = `pkg-config --cflags --libs gtk+-2.0`
+GTK = `pkg-config --cflags --libs gtk+-3.0`
 
 OBJS = ${SRCS:.c=.o}
 

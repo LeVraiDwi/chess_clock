@@ -33,10 +33,15 @@ void	ft_creat_button(GtkWidget *button[])
 	button[10] = gtk_button_new_with_label("Rapid\n30 + 20");
 	button[11] = gtk_button_new_with_label("Custom...");
 	button[12] = gtk_button_new_with_label("Leave");
+	button[13] = gtk_button_new_with_label("Leave");
+	button[14] = gtk_button_new_with_label("play");
+	button[15] = gtk_button_new_with_label("timer1");
+	button[16] = gtk_button_new_with_label("timer2");
 }
 
 void	ft_affichage_button(s_game *game)
 {
+	//button pour main menu
 	gtk_box_pack_start(GTK_BOX(game->vbox[0]), game->button[0], TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(game->vbox[0]), game->button[1], TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(game->vbox[0]), game->button[12], FALSE, FALSE, 0);
@@ -54,5 +59,17 @@ void	ft_affichage_button(s_game *game)
 	gtk_box_pack_start(GTK_BOX(game->hbox), game->vbox[2], TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(game->vbox[3]), game->button[11], TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(game->hbox), game->vbox[3], TRUE, TRUE, 0);
+	g_object_ref((gpointer *)game->hbox);
 	gtk_container_add(GTK_CONTAINER(game->window), game->hbox);
+}
+
+void	ft_creat_box_timer(s_game *game)
+{
+	gtk_box_pack_start(GTK_BOX(game->hbox_timer[0]), game->button[15], TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(game->hbox_timer[0]), game->button[16], TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[0], TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(game->hbox_timer[1]), game->button[14], TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(game->hbox_timer[1]), game->button[13], TRUE, TRUE, 0);
+	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[1], FALSE, FALSE, 0);
+	g_object_ref((gpointer *)game->vbox_timer);
 }

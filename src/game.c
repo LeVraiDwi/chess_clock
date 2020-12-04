@@ -20,6 +20,6 @@ void ft_creat_game(s_game *game)
 	gtk_window_set_title(GTK_WINDOW(game->window), "ChestClock AKA CC");
 	gtk_window_set_default_size(GTK_WINDOW(game->window), 260, 240);
 	gtk_window_set_position(GTK_WINDOW(game->window), GTK_WIN_POS_CENTER);
-	g_signal_connect(G_OBJECT(game->window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
+	g_signal_connect(G_OBJECT(game->window), "destroy", G_CALLBACK(ft_button_13), (gpointer)game);
 	gtk_window_fullscreen(GTK_WINDOW(game->window));
 }

@@ -7,6 +7,7 @@ int	main(int argc, char **argv)
 	gtk_init(&argc, &argv);
 	ft_creat_game(&game);
 	ft_creat_main_menu(&game);
+//	ft_compteur(&game);
 	gtk_main();
 	return 1;
 }

@@ -24,3 +24,10 @@ void	ft_creat_vbox(GtkWidget *vbox[])
 		i++;
 	}
 }
+
+void	ft_creat_hbox(GtkWidget *hbox[])
+{
+	hbox[0] = gtk_hbox_new(1,0);
+	hbox[1] = gtk_hbox_new(1,0);
+	
+}
