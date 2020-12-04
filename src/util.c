@@ -52,11 +52,21 @@ char *ft_strcat(char *str, char *s)
 	l = 0;
 	while (str)
 	{
-		new_str[l++] = str++;
+		new_str[l++] = *str++;
 	}
 	while (str)
 	{
-		new_str[l++] = s++;
+		new_str[l++] = *s++;
 	}
 	return (new_str);
+}
+
+char	*ft_time(int n)
+{
+	char	*str1;
+	char	*str2;
+
+	str1 = ft_itoa(n / 60);
+	str2 = ft_itoa(n % 60);
+	return (ft_strcat(str1,str2));
 }

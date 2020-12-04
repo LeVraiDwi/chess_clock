@@ -42,11 +42,11 @@ void ft_refresh(s_game *game)
 	if (game->player == 1)
 	{
 		str = ft_time(game->player1);
-
 		gtk_button_set_label(GTK_BUTTON(game->button[15]),(gchar *)str);
 	}
 	else if (game->player == 2)
 	{
+		str = ft_time(game->player1);
 		gtk_button_set_label(GTK_BUTTON(game->button[16]),(gchar *)str);
 	}
 }
