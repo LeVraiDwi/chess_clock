@@ -55,7 +55,7 @@ void	ft_signal_timer(s_game *game);
 void	ft_creat_timer(s_game *game);
 void	ft_creat_hbox(GtkWidget *hbox[]);
 void	ft_creat_box_timer(s_game *game);
-void	ft_compteur(s_game *game);
+int		ft_compteur(gpointer data);
 void	ft_refresh(s_game *game);
 char	*ft_time(int n);
 char	*ft_itoa(int n);

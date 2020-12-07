@@ -1,29 +1,32 @@
 #include "clock_chest.h"
 
-void	ft_compteur(s_game *game)
+int	ft_compteur(gpointer data)
 {
-	while (1)
+	s_game	*game;
+	char	*str;
+	
+	game = (s_game *)data;
+	if (game->game == 1)
 	{
-		while (game->game == 1)
+		if (!game->pause)
 		{
-			while (game->player == 1 && game->player1 && !game->pause)
+			if (game->player == 1)
 			{
-				sleep(1);
+				str = ft_time(game->player1);
+				gtk_button_set_label(GTK_BUTTON(game->button[15]), ft_time(game->player1));
 				game->player1--;
-				ft_refresh(game);
+				free(str);
 			}
-			if (!game->pause)
-				game->player1 += game->tbonus;
-			while (game->player == 2 && game->player2 && !game->pause)
+			else if (game->player == 2)
 			{
-				sleep(1);
+				str = ft_time(game->player2);
+				gtk_button_set_label(GTK_BUTTON(game->button[16]), (gchar *)str);
 				game->player2--;
-				ft_refresh(game);
+				free(str);
 			}
-			if (!game->pause)
-				game->player2 += game->tbonus;
 		}
 	}
+	return (1);
 }
 
 void	ft_creat_timer(s_game *game)
@@ -39,6 +42,7 @@ void ft_refresh(s_game *game)
 {
 	char	*str;
 	char	*tmp;
+
 	if (game->player == 1)
 	{
 		str = ft_time(game->player1);
