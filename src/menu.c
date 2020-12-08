@@ -6,14 +6,16 @@ void ft_creat_main_menu(s_game *game)
 
 	window=game->window;
 	ft_creat_button(game->button);
-	game->hbox = gtk_hbox_new(1, 0);
-	game->vbox_timer = gtk_vbox_new(0, 0);
+	game->hbox = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 0);
+	game->vbox_timer = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
 	ft_creat_vbox(game->vbox);
 	ft_creat_hbox(game->hbox_timer);
 	ft_affichage_button(game);
 	ft_signal_menu(game);
 	ft_signal_timer(game);
 	ft_creat_box_timer(game);
+	gtk_button_set_relief(GTK_BUTTON(game->button[16]), GTK_RELIEF_NONE);
+	gtk_button_set_relief(GTK_BUTTON(game->button[15]), GTK_RELIEF_NONE);
 	gtk_widget_show_all(game->window);
 }
 

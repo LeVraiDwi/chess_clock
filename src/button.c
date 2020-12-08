@@ -70,6 +70,6 @@ void	ft_creat_box_timer(s_game *game)
 	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[0], TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(game->hbox_timer[1]), game->button[14], TRUE, TRUE, 0);
 	gtk_box_pack_start(GTK_BOX(game->hbox_timer[1]), game->button[13], TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[1], FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[1], FALSE, TRUE, 0);
 	g_object_ref((gpointer *)game->vbox_timer);
 }

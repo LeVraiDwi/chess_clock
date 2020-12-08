@@ -1,16 +1,16 @@
 #include "clock_chest.h"
 
-int		ft_intlen(int n)
+int	ft_intlen(int n)
 {
-	int	i;
+	int	l;
 
-	i = 1;
-	while (n / 10 > 0)
+	l = 1;
+	while (n / 10 != 0)
 	{
 		n = n / 10;
-		i++;
+		l++;
 	}
-	return (i);
+	return (l);
 }
 
 void	ft_int_str(char *str, int n)
@@ -43,48 +43,47 @@ int	ft_strlen (char *str)
 	return (i);
 }
 
-char *ft_strcat(char *str, char *s)
+gchar *ft_strcat(char *str, char *s)
 {
-	char	*new_str;
+	gchar	*new_str;
 	int		l;
 
+	l = 4;
+	l += ft_strlen(str);
+	new_str = malloc(sizeof(char) * l + 1);
 	l = 0;
-	if (ft_strlen(str) < 2)
-		l += 1;
-	if (ft_strlen(s) < 2)
-		l += 1;
-	l += ft_strlen(str) + ft_strlen(s) + 2;
-	new_str = malloc(sizeof(char) * l);
-	l = 0;
-	if (ft_strlen(str) < 2)
+	if (ft_strlen(str) == 1)
 		new_str[l++] = '0';
 	while (*str)
 	{
 		new_str[l++] = *str++;
 	}
 	new_str[l++] = ':';
-	if (ft_strlen(s) < 2)
+	if (ft_strlen(s) == 1)
 		new_str[l++] = '0';
 	while (*s)
 	{
 		new_str[l++] = *s++;
 	}
-	str[l] =  0;
+	new_str[l] =  0;
 	return (new_str);
 }
 
-char	*ft_time(int n)
+gchar	*ft_time(int n)
 {
 	char	*str1;
 	char	*str2;
-	char	*tmp;
+	gchar	*tmp;
+	gchar	*utf8;
 
 	str1 = ft_itoa(n / 60);
 	str2 = ft_itoa(n % 60);
 	tmp = ft_strcat(str1, str2);
-	tmp[ft_strlen(tmp ) - 1] = '\0';
+	tmp[ft_strlen(tmp)] = 0;
 	printf("%s\n",tmp);
+	utf8 = g_locale_to_utf8(tmp, -1, 0, 0, 0);
 	free(str1);
 	free(str2);
-	return (tmp);
+	free(tmp);
+	return (utf8);
 }
