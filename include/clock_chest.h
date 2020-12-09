@@ -4,6 +4,13 @@
 #	include	<gtk/gtk.h>
 #	include <stdlib.h>
 
+typedef	struct	t_style
+{
+	GtkCssProvider	*provider;
+	GdkDisplay	*display;
+	GdkScreen	*screen;
+}		s_style;
+
 typedef struct	t_game
 {
 	GtkWidget	*window;
@@ -20,6 +27,7 @@ typedef struct	t_game
 	long		player1;
 	long		player2;
 	long		tbonus;
+	s_style		style;
 }		s_game;
 
 void	ft_timer(long j1sec, long j2sec);
@@ -55,8 +63,10 @@ void	ft_signal_timer(s_game *game);
 void	ft_creat_timer(s_game *game);
 void	ft_creat_hbox(GtkWidget *hbox[]);
 void	ft_creat_box_timer(s_game *game);
-int		ft_compteur(gpointer data);
 void	ft_refresh(s_game *game);
+void	ft_set_style(s_game *game);
+void	ft_init_style(s_style *style);
+int	ft_compteur(gpointer data);
 char	*ft_time(int n);
 char	*ft_itoa(int n);
 #endif

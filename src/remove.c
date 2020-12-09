@@ -7,7 +7,7 @@ void	remove_main_menu(s_game *game)
 	game->player = 0;
 	gtk_container_remove(GTK_CONTAINER(game->window), game->hbox);
 	gtk_container_add(GTK_CONTAINER(game->window), game->vbox_timer);
-	gtk_button_set_label(GTK_BUTTON(game->button[14]), "cliquer sur le joueur qui commence");
+	//gtk_button_set_label(GTK_BUTTON(game->button[14]), "cliquer sur le joueur qui commence");
 	gtk_widget_show_all(game->window);
 }
 

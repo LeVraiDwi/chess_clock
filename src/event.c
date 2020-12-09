@@ -247,7 +247,7 @@ void	ft_button_15(GtkWidget *objet, gpointer data)
 	game = (s_game *)data;
 	if (game->pause == 1)
 	{
-		gtk_button_set_label(GTK_BUTTON(game->button[14]),"pause");
+		//gtk_button_set_label(GTK_BUTTON(game->button[14]),"pause");
 		if (game->player == 0)
 			game->player = 1;
 	}
@@ -277,14 +277,14 @@ void	ft_button_16(GtkWidget *objet, gpointer data)
 	game = (s_game *)data;
 	if (game->pause == 1)
 	{
-		gtk_button_set_label(GTK_BUTTON(game->button[14]),"pause");
+		//gtk_button_set_label(GTK_BUTTON(game->button[14]),"pause");
 		if (game->player == 0)
 			game->player = 2;
 	}
 	else
 	{
 		if (game->player == 1)
-		{	
+		{
 			game->player = 2;
 			game->player1 += game->tbonus;
 			gtk_button_set_label(GTK_BUTTON(game->button[15]), ft_time(game->player1));

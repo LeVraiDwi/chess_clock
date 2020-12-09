@@ -1,0 +1,21 @@
+#include "clock_chest.h"
+
+int	main(int argc, char **argv)
+{
+	s_game	game;
+	GtkWidget	*label;
+	GtkStyleContext *context;
+
+	gtk_init(&argc, &argv);
+	ft_creat_game(&game);
+	ft_set_style(&game);
+	label = gtk_button_new_with_label("tatin sur 20");
+	context = gtk_widget_get_context(label);
+	gtk_style_context_add_class(context, "buttontest");
+	gtk_container_add(GTK_CONTAINER(game.window), label);
+	gtk_widget_show_all(game.window);
+	//ft_creat_main_menu(&game);
+	//g_timeout_add_seconds(1, ft_compteur, (gpointer)&game);
+	gtk_main();
+	return 1;
+}

@@ -20,23 +20,59 @@ void	ft_init_button(GtkWidget *button[])
 
 void	ft_creat_button(GtkWidget *button[])
 {
+	GtkStyleContext	*context;
+
 	button[0] = gtk_button_new_with_label("Bullet\n1 + 0");
+	context = gtk_widget_get_style_context(button[0]);
+	gtk_style_context_add_class(context, "bullet");
 	button[1] = gtk_button_new_with_label("Bullet\n2 + 1");
+	context = gtk_widget_get_style_context(button[1]);
+	gtk_style_context_add_class(context, "bullet");
 	button[2] = gtk_button_new_with_label("Blitz\n3 + 0");
+	context = gtk_widget_get_style_context(button[2]);
+	gtk_style_context_add_class(context, "blitz");
 	button[3] = gtk_button_new_with_label("Blitz\n3 + 2");
+	context = gtk_widget_get_style_context(button[3]);
+	gtk_style_context_add_class(context, "blitz");
 	button[4] = gtk_button_new_with_label("Blitz\n5 + 0");
+	context = gtk_widget_get_style_context(button[4]);
+	gtk_style_context_add_class(context, "blitz");
 	button[5] = gtk_button_new_with_label("Blitz\n5 + 3");
+	context = gtk_widget_get_style_context(button[5]);
+	gtk_style_context_add_class(context, "blitz");
 	button[6] = gtk_button_new_with_label("Rapid\n10 + 0");
+	context = gtk_widget_get_style_context(button[6]);
+	gtk_style_context_add_class(context, "rapid");
 	button[7] = gtk_button_new_with_label("Rapid\n10 + 5");
+	context = gtk_widget_get_style_context(button[7]);
+	gtk_style_context_add_class(context, "rapid");
 	button[8] = gtk_button_new_with_label("Rapid\n15 + 10");
+	context = gtk_widget_get_style_context(button[8]);
+	gtk_style_context_add_class(context, "rapid");
 	button[9] = gtk_button_new_with_label("Rapid\n30 + 0");
+	context = gtk_widget_get_style_context(button[9]);
+	gtk_style_context_add_class(context, "rapid");
 	button[10] = gtk_button_new_with_label("Rapid\n30 + 20");
+	context = gtk_widget_get_style_context(button[10]);
+	gtk_style_context_add_class(context, "rapid");
 	button[11] = gtk_button_new_with_label("Custom...");
+	context = gtk_widget_get_style_context(button[11]);
+	gtk_style_context_add_class(context, "custom");
 	button[12] = gtk_button_new_with_label("Leave");
+	context = gtk_widget_get_style_context(button[12]);
+	gtk_style_context_add_class(context, "leave");
 	button[13] = gtk_button_new_with_label("Leave");
-	button[14] = gtk_button_new_with_label("play");
+	context = gtk_widget_get_style_context(button[13]);
+	gtk_style_context_add_class(context, "leave");
+	button[14] = gtk_button_new_with_label("pause/play");
+	context = gtk_widget_get_style_context(button[14]);
+	gtk_style_context_add_class(context, "play");
 	button[15] = gtk_button_new_with_label("timer1");
+	context = gtk_widget_get_style_context(button[15]);
+	gtk_style_context_add_class(context, "timer1");
 	button[16] = gtk_button_new_with_label("timer2");
+	context = gtk_widget_get_style_context(button[16]);
+	gtk_style_context_add_class(context, "timer2");
 }
 
 void	ft_affichage_button(s_game *game)

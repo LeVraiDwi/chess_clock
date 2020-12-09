@@ -5,6 +5,7 @@ SRC_PATH = ./src
 SRC_NAME =	 box.c button.c game.c\
 		 main.c menu.c timer.c\
 		 remove.c event.c util.c\
+		 style.c \
 
 CFLAGS = -Wall -Wextra -Werror
 

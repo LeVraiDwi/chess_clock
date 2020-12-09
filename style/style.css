@@ -1,0 +1,63 @@
+
+.bullet{
+	background-color : #d2e0fa;
+	font : 20px Roboto;
+}
+
+.bullet:hover{
+	background-color : #d4e4f6;
+}
+
+.blitz{
+	background-color : #c9fbf0;
+	font : 20px Roboto;
+}
+
+.blitz:hover{
+	background-color : #cfffed;
+}
+
+.rapid{
+	background-color : #fbf9d3;
+	font : 20px Roboto;
+}
+
+.rapid:hover{
+	background-color : #f6f6d9;
+}
+
+.custom{
+	background-color : #fcc6bf;
+	font : 20px Roboto;
+}
+
+.custom:hover{
+	background-color : #fccbc2;
+}
+
+.leave{
+	background-color : #ea8990;
+	font : 20px Roboto;
+}
+
+.leave:hover{
+	background-color : #fcc7bf;
+}
+
+.play{
+	background-color : #77dd77;
+}
+
+.play:hover{
+	background-color : #98fe98;
+}
+
+.timer1{
+	background-color : #92ccdd;
+	font : 40px Roboto;
+}
+
+.timer2{
+	background-color : #c7eff0;
+	font : 40px Roboto;
+}
