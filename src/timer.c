@@ -12,16 +12,20 @@ int	ft_compteur(gpointer data)
 		{
 			if (game->player == 1)
 			{
-				str = ft_time(game->player1);
+				if (game->player1 <= 0)
+					remove_timer(game);
+				str = ft_time((int)game->player1 / 1);
 				gtk_button_set_label(GTK_BUTTON(game->button[15]), str);
-				game->player1--;
+				game->player1 = game->player1 - 0.25;
 				free(str);
 			}
 			else if (game->player == 2)
 			{
-				str = ft_time(game->player2);
+				if (game->player2 <= 0)
+					remove_timer(game);
+				str = ft_time((int)game->player2 / 1);
 				gtk_button_set_label(GTK_BUTTON(game->button[16]), str);
-				game->player2--;
+				game->player2 = game->player2 - 0.25;
 				free(str);
 			}
 		}

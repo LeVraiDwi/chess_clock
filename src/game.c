@@ -6,6 +6,7 @@ void ft_init_game(s_game *game)
 	game->hbox = 0;
 	ft_init_vbox(game->vbox);
 	ft_init_button(game->button);
+	game->vbox_victoire = 0;
 	game->player = 0;
 	game->game = 1;
 	game->pause = 0;

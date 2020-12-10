@@ -16,6 +16,10 @@ void	ft_init_button(GtkWidget *button[])
 	button[11] = 0;
 	button[12] = 0;
 	button[13] = 0;
+	button[14] = 0;
+	button[15] = 0;
+	button[16] = 0;
+	button[17] = 0;
 }
 
 void	ft_creat_button(GtkWidget *button[])
@@ -73,6 +77,9 @@ void	ft_creat_button(GtkWidget *button[])
 	button[16] = gtk_button_new_with_label("timer2");
 	context = gtk_widget_get_style_context(button[16]);
 	gtk_style_context_add_class(context, "timer2");
+	button[17] = gtk_button_new_with_label("timer2");
+	context = gtk_widget_get_style_context(button[17]);
+	gtk_style_context_add_class(context, "leave");
 }
 
 void	ft_affichage_button(s_game *game)
