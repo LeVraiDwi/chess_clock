@@ -11,6 +11,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 GTK = `pkg-config --cflags --libs gtk+-3.0`
 
+PTHREAD = `-lpthread -D_REENTRANT`
+
 OBJS = ${SRCS:.c=.o}
 
 NAME = chestclock.a
@@ -25,7 +27,7 @@ RM = rm -f
 			${CC} ${HEADER} -c $< -o $@ ${GTK}
 
 ${NAME}:	${OBJS}
-		gcc -o ${NAME} ${HEADER} ${OBJS}  ${GTK}
+		gcc -o ${NAME} ${HEADER} ${OBJS} ${GTK}
 
 all:		${NAME}
 
