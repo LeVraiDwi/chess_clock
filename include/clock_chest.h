@@ -19,9 +19,11 @@ typedef struct	t_game
 	GtkWidget	*hbox_timer[2];
 	GtkWidget	*vbox_timer;
 	GtkWidget	*button[5];
-	unsigned int	player;
+	int		player;
 	unsigned int	game;
 	unsigned int	pause;
+	gdouble		start1;
+	gdouble		start2;
 	gdouble		player1;
 	gdouble		player2;
 	GTimer		*timer1;
@@ -34,6 +36,7 @@ typedef struct	t_game
 void	ft_creat_timer(s_game *game);
 void	ft_add_tbonus(gdouble tbonus, GtkWidget *button, GTimer *timer, gdouble player);
 void	ft_creat_grid_timer(s_game *game);
+void	ft_init_timer(s_game *game);
 int	ft_timer(gpointer data);
 //button.c
 void	ft_init_button(GtkWidget *button[]);
@@ -47,6 +50,7 @@ void	ft_button_0(GtkWidget *objet, gpointer data);
 void	ft_button_1(GtkWidget *objet, gpointer data);
 void	ft_button_2(GtkWidget *objet, gpointer data);
 void	ft_button_3(GtkWidget *objet, gpointer data);
+void	ft_button_4(GtkWidget *objet, gpointer data);
 //menu.c
 void	ft_signal_timer(s_game *game);
 void	ft_creat_menu(s_game *game);

@@ -7,6 +7,8 @@ int	ft_timer(gpointer data)
 	char	str[15];
 
 	game = (s_game *)data;
+	if (game->game == 0)
+		return (0);
 	if (game->pause == 0)
 	{
 		if (game->player == 1)
@@ -37,7 +39,7 @@ void	ft_add_tbonus(gdouble tbonus, GtkWidget *button, GTimer *timer, gdouble pla
 
 	player += tbonus;
 	player_time = player - g_timer_elapsed(timer, 0);
-	sprintf(str, "%.2i : %.2i", (int)(player_time / 60), ((int)(player_time / 1)) % 60);
+	sprintf(str, "%2.2i : %2.2i", (int)(player_time / 60), ((int)(player_time / 1)) % 60);
 	gtk_button_set_label(GTK_BUTTON(button), str);
 }
 
@@ -47,9 +49,16 @@ void	ft_creat_timer(s_game *game)
 
 	label = 0;
 	ft_creat_button(game->button);
-	//ft_creat_box_timer(game);
 	ft_signal_timer(game);
 	ft_creat_menu(game);
-	//gtk_container_add(GTK_CONTAINER(game->window), game->vbox_timer);
 	gtk_widget_show_all(game->window);
+}
+
+void	ft_init_timer(s_game *game)
+{
+	game->timer1 = g_timer_new();
+	game->timer2 = g_timer_new();
+	
+	g_timer_stop(game->timer1);
+	g_timer_stop(game->timer2);
 }

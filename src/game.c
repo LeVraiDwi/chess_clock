@@ -10,8 +10,8 @@ void ft_init_game(s_game *game)
 	game->player = 0;
 	game->game = 0;
 	game->pause = 0;
-	game->player1 = 120;
-	game->player2 = 120;
+	game->start1 = 120;
+	game->start2 = 120;
 	game->tbonus = 1;
 	game->timer1 = 0;
 	game->timer2 = 0;

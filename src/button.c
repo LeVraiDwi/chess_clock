@@ -41,11 +41,11 @@ void	ft_creat_box_timer(s_game *game)
 
 void	ft_creat_grid_timer(s_game *game)
 {
-	//gtk_grid_attach(GTK_GRID(game->grid), game->button[0], 1, 1, 1, 1);
 	gtk_grid_set_row_homogeneous(GTK_GRID(game->grid), 1);
 	gtk_grid_set_column_homogeneous(GTK_GRID(game->grid), 1);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[2], 1, 1, 1, 19);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[3], 2, 1, 1, 19);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[1], 1, 20, 1, 1);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[4], 2, 20, 1, 1);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[0], 1, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[2], 1, 1, 10, 19);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[3], 10, 1, 10, 19);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[1], 1, 20, 10, 1);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[4], 10, 20, 10, 1);
 }
