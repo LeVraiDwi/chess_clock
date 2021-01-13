@@ -4,15 +4,12 @@ void ft_init_game(s_game *game)
 {
 	game->window = 0;
 	ft_init_button(game->button);
-	ft_init_box(game);
-	game->vbox_timer = gtk_box_new(GTK_ORIENTATION_VERTICAL, 0);
-	ft_creat_hbox(game->hbox_timer);
+	//ft_menu(game);
 	game->player = 0;
 	game->game = 0;
 	game->pause = 0;
-	game->start1 = 120;
-	game->start2 = 120;
-	game->tbonus = 1;
+	game->start1 = 0;	
+	game->start2 = 0;	
 	game->timer1 = 0;
 	game->timer2 = 0;
 }

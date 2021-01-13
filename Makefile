@@ -2,10 +2,9 @@ SRCS = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
 SRC_PATH = ./src
 
-SRC_NAME =	 box.c button.c game.c\
+SRC_NAME =	 style.c button.c game.c\
 		 main.c menu.c timer.c\
 		 remove.c event.c util.c\
-		 style.c \
 
 CFLAGS = -Wall -Wextra -Werror
 

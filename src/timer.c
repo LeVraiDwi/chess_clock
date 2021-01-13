@@ -53,12 +53,3 @@ void	ft_creat_timer(s_game *game)
 	ft_creat_menu(game);
 	gtk_widget_show_all(game->window);
 }
-
-void	ft_init_timer(s_game *game)
-{
-	game->timer1 = g_timer_new();
-	game->timer2 = g_timer_new();
-	
-	g_timer_stop(game->timer1);
-	g_timer_stop(game->timer2);
-}

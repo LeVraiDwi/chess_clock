@@ -19,6 +19,9 @@ typedef struct	t_game
 	GtkWidget	*hbox_timer[2];
 	GtkWidget	*vbox_timer;
 	GtkWidget	*button[5];
+	GtkWidget	*menu;
+	GtkWidget	*menu_button;
+	GtkWidget	*menu_item;
 	int		player;
 	unsigned int	game;
 	unsigned int	pause;
@@ -51,12 +54,21 @@ void	ft_button_1(GtkWidget *objet, gpointer data);
 void	ft_button_2(GtkWidget *objet, gpointer data);
 void	ft_button_3(GtkWidget *objet, gpointer data);
 void	ft_button_4(GtkWidget *objet, gpointer data);
+void	ft_bullet_1(GtkWidget *objet, gpointer data);
+void	ft_bullet_2(GtkWidget *objet, gpointer data);
+void	ft_blitz_1(GtkWidget *objet, gpointer data);
+void	ft_blitz_2(GtkWidget *objet, gpointer data);
+void	ft_blitz_3(GtkWidget *objet, gpointer data);
+void	ft_blitz_4(GtkWidget *objet, gpointer data);
+void	ft_rapid_1(GtkWidget *objet, gpointer data);
+void	ft_rapid_2(GtkWidget *objet, gpointer data);
+void	ft_rapid_3(GtkWidget *objet, gpointer data);
+void	ft_rapid_4(GtkWidget *objet, gpointer data);
+void	ft_rapid_5(GtkWidget *objet, gpointer data);
 //menu.c
 void	ft_signal_timer(s_game *game);
 void	ft_creat_menu(s_game *game);
-//box.c
-void	ft_creat_hbox(GtkWidget *hbox[]);
-void	ft_init_box(s_game *game);
+void	ft_menu(s_game *game);
 //style.c
 void	ft_set_style(s_game *game);
 void	ft_init_style(s_style *style);
