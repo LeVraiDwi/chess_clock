@@ -17,6 +17,19 @@ void	ft_creat_menu(s_game *game)
 	gtk_container_add(GTK_CONTAINER(game->window), GTK_WIDGET(game->grid));
 }
 
+void	ft_creat_custom(s_game *game)
+{
+	GtkWidget	*label;
+
+	label = 0;
+	label = gtk_label_new("la vie");
+	game->grid_custom = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 1);
+	gtk_box_pack_start(GTK_BOX(game->grid_custom), label, 0, 0, 0);
+	//game->grid_custom = gtk_grid_new();
+	//gtk_grid_attach(GTK_GRID(game->grid_custom), label, 0, 0, 20, 20);
+	gtk_container_add(GTK_CONTAINER(game->popover), GTK_WIDGET(game->grid_custom));
+}
+
 void	ft_menu(s_game *game)
 {
 	GtkWidget	*submenu;
@@ -78,5 +91,8 @@ void	ft_menu(s_game *game)
 	gtk_menu_shell_append(GTK_MENU_SHELL(game->menu_button), menu_item);
 	//ajout custome
 	menu_item = gtk_menu_item_new_with_label("Custom");
+	g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(ft_custom), (gpointer)game);
+	game->popover = gtk_popover_new(menu_item);
+	ft_creat_custom(game);
 	gtk_menu_shell_append(GTK_MENU_SHELL(game->menu_button), menu_item);
 }

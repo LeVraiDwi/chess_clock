@@ -15,13 +15,12 @@ typedef	struct	t_style
 typedef struct	t_game
 {
 	GtkWidget	*window;
+	GtkWidget	*window_custom;
 	GtkWidget	*grid;
-	GtkWidget	*hbox_timer[2];
-	GtkWidget	*vbox_timer;
+	GtkWidget	*grid_custom;
 	GtkWidget	*button[5];
-	GtkWidget	*menu;
 	GtkWidget	*menu_button;
-	GtkWidget	*menu_item;
+	GtkWidget	*popover;
 	int		player;
 	unsigned int	game;
 	unsigned int	pause;
@@ -65,6 +64,7 @@ void	ft_rapid_2(GtkWidget *objet, gpointer data);
 void	ft_rapid_3(GtkWidget *objet, gpointer data);
 void	ft_rapid_4(GtkWidget *objet, gpointer data);
 void	ft_rapid_5(GtkWidget *objet, gpointer data);
+void	ft_custom(GtkWidget *objet, gpointer data);
 //menu.c
 void	ft_signal_timer(s_game *game);
 void	ft_creat_menu(s_game *game);

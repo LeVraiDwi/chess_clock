@@ -28,17 +28,6 @@ void	ft_creat_button(GtkWidget *button[])
 	gtk_style_context_add_class(context, "reset");
 }
 
-void	ft_creat_box_timer(s_game *game)
-{
-	gtk_box_pack_start(GTK_BOX(game->hbox_timer[0]), game->button[2], TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(game->hbox_timer[0]), game->button[3], TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[0], TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(game->hbox_timer[1]), game->button[1], TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(game->hbox_timer[1]), game->button[0], TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(game->vbox_timer), game->hbox_timer[1], FALSE, TRUE, 0);
-	g_object_ref((gpointer *)game->vbox_timer);
-}
-
 void	ft_creat_grid_timer(s_game *game)
 {
 	gtk_grid_set_row_homogeneous(GTK_GRID(game->grid), 1);

@@ -12,6 +12,14 @@ void ft_init_game(s_game *game)
 	game->start2 = 0;	
 	game->timer1 = 0;
 	game->timer2 = 0;
+	game->player1 = 0;
+	game->player2 = 0;
+	game->tbonus = 0;
+	game->window = 0;
+	game->grid = 0;
+	game->grid_custom = 0;
+	game->popover = 0;
+	
 }
 
 void ft_creat_game(s_game *game)

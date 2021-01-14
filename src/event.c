@@ -45,14 +45,14 @@ void	ft_button_2(GtkWidget *objet, gpointer data)
 	game = (s_game *)data;
 	if (game->game == 0)
 	{
-		if (game->start1 != 0 || game->start2 != 0)
+		if (game->start1 != 0 && game->start2 != 0)
 		{
 			game->game = 1;
 			game->pause = 0;
-			game->player = -1;
+			game->player = 1;
 			game->player1 = game->start1;
 			game->player2 = game->start2;
-			game->timer2 = g_timer_new();
+			game->timer1 = g_timer_new();
 			gtk_button_set_label(GTK_BUTTON(game->button[1]),"play");
 			g_timeout_add_full(G_PRIORITY_HIGH, 250, (GSourceFunc)ft_timer, (gpointer)game, 0);
 		}
@@ -476,4 +476,15 @@ void	ft_rapid_5(GtkWidget *objet, gpointer data)
 	gtk_button_set_label(GTK_BUTTON(game->button[2]), str);
 	sprintf(str, "%2.2i : %2.2i", (int)(game->player1 / 60), (int)(game->player1) % 60);
 	gtk_button_set_label(GTK_BUTTON(game->button[3]), str);
+}
+
+void	ft_custom(GtkWidget *objet, gpointer data)
+{
+	s_game	*game;
+
+	game = (s_game *)data;
+	game->window_custom = gtk_window_new(GTK_WINDOW_POPUP);
+	gtk_window_set_default_size(GTK_WINDOW(game->window_custom), 260, 240);
+	gtk_window_set_position(GTK_WINDOW(game->window), GTK_WIN_POS_CENTER);
+	widget_show_
 }
