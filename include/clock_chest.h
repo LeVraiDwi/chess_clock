@@ -21,9 +21,12 @@ typedef struct	t_game
 	GtkWidget	*button[5];
 	GtkWidget	*menu_button;
 	GtkWidget	*popover;
+	GtkWidget	*label_custom[3];
 	int		player;
 	unsigned int	game;
 	unsigned int	pause;
+	unsigned int	time;
+	unsigned int	timeb;
 	gdouble		start1;
 	gdouble		start2;
 	gdouble		player1;
@@ -65,10 +68,18 @@ void	ft_rapid_3(GtkWidget *objet, gpointer data);
 void	ft_rapid_4(GtkWidget *objet, gpointer data);
 void	ft_rapid_5(GtkWidget *objet, gpointer data);
 void	ft_custom(GtkWidget *objet, gpointer data);
+void	ft_minus_min(GtkWidget *objet, gpointer data);
+void	ft_minus_second(GtkWidget *objet, gpointer data);
+void	ft_plus_second(GtkWidget *objet, gpointer data);
+void	ft_plus_min(GtkWidget *objet, gpointer data);
+void	ft_plus_bonus(GtkWidget *objet, gpointer data);
+void	ft_minus_bonus(GtkWidget *objet, gpointer data);
+void	ft_leave_custom(GtkWidget *objet, gpointer data);
 //menu.c
 void	ft_signal_timer(s_game *game);
 void	ft_creat_menu(s_game *game);
 void	ft_menu(s_game *game);
+void	ft_creat_custom(s_game *game);
 //style.c
 void	ft_set_style(s_game *game);
 void	ft_init_style(s_style *style);

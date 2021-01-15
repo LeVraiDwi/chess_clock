@@ -19,15 +19,55 @@ void	ft_creat_menu(s_game *game)
 
 void	ft_creat_custom(s_game *game)
 {
-	GtkWidget	*label;
+	GtkWidget	*button;
 
-	label = 0;
-	label = gtk_label_new("la vie");
-	game->grid_custom = gtk_box_new(GTK_ORIENTATION_HORIZONTAL, 1);
-	gtk_box_pack_start(GTK_BOX(game->grid_custom), label, 0, 0, 0);
-	//game->grid_custom = gtk_grid_new();
-	//gtk_grid_attach(GTK_GRID(game->grid_custom), label, 0, 0, 20, 20);
-	gtk_container_add(GTK_CONTAINER(game->popover), GTK_WIDGET(game->grid_custom));
+	//la grille
+	game->grid_custom = gtk_grid_new();
+	//ajout de la grille
+	gtk_container_add(GTK_CONTAINER(game->window_custom), GTK_WIDGET(game->grid_custom));
+	//creation des label
+	game->label_custom[0] = gtk_label_new("00");
+	button = 0;
+	button = gtk_label_new(":");
+	gtk_grid_attach(GTK_GRID(game->grid_custom), game->label_custom[0], 1, 3, 3, 1);
+	game->label_custom[1] = gtk_label_new("00");
+	gtk_grid_attach(GTK_GRID(game->grid_custom), game->label_custom[1], 5, 3, 3, 1);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 4, 3, 1, 1);
+	button = 0;
+	button = gtk_label_new("temps joueur:");
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 0, 1, 8, 1);
+	button = 0;
+	button = gtk_label_new("temps bonus:");
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 0, 5, 8, 1);
+	button = 0;
+	button = gtk_button_new_with_label("+");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_plus_min), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 1, 2, 3, 1);
+	button = 0;
+	button = gtk_button_new_with_label("-");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_minus_min), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 1, 4, 3, 1);
+	button = 0;
+	button = gtk_button_new_with_label("+");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_plus_second), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 5, 2, 3, 1);
+	button = 0;
+	button = gtk_button_new_with_label("-");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_minus_second), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 5, 4, 3, 1);
+	button = 0;
+	button = gtk_button_new_with_label(" go! ");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_leave_custom), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 0, 9, 9, 1);
+	button = 0;
+	game->label_custom[2] = gtk_label_new("00 : 00");
+	gtk_grid_attach(GTK_GRID(game->grid_custom), game->label_custom[2], 1, 7, 8, 1);
+	button = gtk_button_new_with_label("+");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_plus_bonus), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 1, 6, 7, 1);
+	button = gtk_button_new_with_label("-");
+	g_signal_connect(G_OBJECT(button), "activate", G_CALLBACK(ft_minus_bonus), (gpointer)game);
+	gtk_grid_attach(GTK_GRID(game->grid_custom), button, 1, 8, 7, 1);
 }
 
 void	ft_menu(s_game *game)
@@ -93,6 +133,5 @@ void	ft_menu(s_game *game)
 	menu_item = gtk_menu_item_new_with_label("Custom");
 	g_signal_connect(G_OBJECT(menu_item), "activate", G_CALLBACK(ft_custom), (gpointer)game);
 	game->popover = gtk_popover_new(menu_item);
-	ft_creat_custom(game);
 	gtk_menu_shell_append(GTK_MENU_SHELL(game->menu_button), menu_item);
 }
