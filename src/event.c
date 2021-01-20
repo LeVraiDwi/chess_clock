@@ -14,7 +14,12 @@ void	ft_button_1(GtkWidget *objet, gpointer data)
 	s_game	*game;
 
 	game = (s_game *)data;
-	if (game->game == 1)
+	if (game->window_custom == 0)
+	{
+		gtk_widget_destroy(game->window_custom);
+		game->window_custom = 0;
+	}
+	else if (game->game == 1)
 	{
 		if (game->pause == 1)
 		{
@@ -485,6 +490,14 @@ void	ft_custom(GtkWidget *objet, gpointer data)
 	game = (s_game *)data;
 	game->time = 0;
 	game->timeb = 0;
+	if (game->game == 1 && game->pause == 0)
+	{
+		game->pause = 1;
+		if (game->player == 1)
+			g_timer_stop(game->timer1);
+		else
+			g_timer_stop(game->timer2);
+	}
 	game->window_custom = gtk_window_new(GTK_WINDOW_POPUP);
 	gtk_window_set_transient_for(GTK_WINDOW(game->window_custom), GTK_WINDOW(game->window));
 	gtk_window_set_position(GTK_WINDOW(game->window_custom), GTK_WIN_POS_CENTER_ON_PARENT);
@@ -504,7 +517,7 @@ void	ft_minus_min(GtkWidget *objet, gpointer data)
 	{
 		game->time -= 60;
 		sprintf(str, "%2.2i", (int)(game->time / 60));
-		gtk_button_set_label(GTK_BUTTON(game->label_custom[0]), str);
+		gtk_label_set_label(GTK_LABEL(game->label_custom[0]), str);
 	}
 
 }
@@ -519,7 +532,7 @@ void	ft_minus_second(GtkWidget *objet, gpointer data)
 	{
 		game->time -= 1;
 		sprintf(str, "%2.2i", (int)(game->time % 60));
-		gtk_button_set_label(GTK_BUTTON(game->label_custom[1]), str);
+		gtk_label_set_label(GTK_LABEL(game->label_custom[1]), str);
 	}
 
 }
@@ -530,10 +543,9 @@ void	ft_plus_min(GtkWidget *objet, gpointer data)
 	char	str[15];
 
 	game = (s_game *)data;
-	printf("click\n");
 	game->time += 60;
 	sprintf(str, "%2.2i", (int)(game->time / 60));
-	gtk_button_set_label(GTK_BUTTON(game->label_custom[0]), str);
+	gtk_label_set_label(GTK_LABEL(game->label_custom[0]), str);
 }
 
 void	ft_plus_second(GtkWidget *objet, gpointer data)
@@ -544,14 +556,35 @@ void	ft_plus_second(GtkWidget *objet, gpointer data)
 	game = (s_game *)data;
 	game->time += 1;
 	sprintf(str, "%2.2i", (int)(game->time % 60));
-	gtk_button_set_label(GTK_BUTTON(game->label_custom[1]), str);
+	gtk_label_set_label(GTK_LABEL(game->label_custom[1]), str);
 }
 
 void	ft_leave_custom(GtkWidget *objet, gpointer data)
 {
 	s_game	*game;
+	char	str[15];
 
 	game = (s_game *)data;
+	if (game->game == 1)
+	{
+		game->game = 0;
+		game->pause = 0;
+		g_timer_destroy(game->timer1);
+		g_timer_destroy(game->timer2);
+		game->timer1 = 0;
+		game->timer2 = 0;
+	}
+	game->start1 = (gdouble)game->time;
+	game->start2 = (gdouble)game->time;
+	game->player1 = game->start1;
+	game->player2 = game->start2;
+	game->tbonus = (gdouble)game->timeb;
+	sprintf(str, "%2.2i : %2.2i", (int)(game->player1 / 60), (int)(game->player1) % 60);
+	gtk_button_set_label(GTK_BUTTON(game->button[2]), str);
+	sprintf(str, "%2.2i : %2.2i", (int)(game->player1 / 60), (int)(game->player1) % 60);
+	gtk_button_set_label(GTK_BUTTON(game->button[3]), str);
+	gtk_widget_destroy(game->window_custom);
+	game->window_custom = 0;
 }
 
 void	ft_minus_bonus(GtkWidget *objet, gpointer data)
@@ -560,11 +593,11 @@ void	ft_minus_bonus(GtkWidget *objet, gpointer data)
 	char	str[15];
 
 	game = (s_game *)data;
-	if (game->timeb - 1 >= 0)
+	if (game->timeb > 0)
 	{
 		game->timeb -= 1;
 		sprintf(str, "%2.2i : %2.2i", (int)(game->timeb / 60), (int)(game->timeb) % 60);
-		gtk_button_set_label(GTK_BUTTON(game->label_custom[2]), str);
+		gtk_label_set_label(GTK_LABEL(game->label_custom[2]), str);
 	}
 
 }
@@ -575,7 +608,7 @@ void	ft_plus_bonus(GtkWidget *objet, gpointer data)
 	char	str[15];
 
 	game = (s_game *)data;
-	game->timeb -= 1;
+	game->timeb += 1;
 	sprintf(str, "%2.2i : %2.2i", (int)(game->timeb / 60), (int)(game->timeb) % 60);
-	gtk_button_set_label(GTK_BUTTON(game->label_custom[2]), str);
+	gtk_label_set_label(GTK_LABEL(game->label_custom[2]), str);
 }
