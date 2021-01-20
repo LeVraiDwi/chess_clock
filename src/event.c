@@ -12,8 +12,11 @@ void	ft_button_0(GtkWidget *objet, gpointer data)
 void	ft_button_1(GtkWidget *objet, gpointer data)
 {
 	s_game	*game;
+	GtkStyleContext	*context;
 
 	game = (s_game *)data;
+	context = gtk_widget_get_style_context(game->button[3]);
+	gtk_style_context_add_class(context, "timer1_blanc");
 	if (game->window_custom == 0)
 	{
 		gtk_widget_destroy(game->window_custom);

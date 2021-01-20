@@ -36,7 +36,8 @@
 }
 
 .leave{
-	background-color : #ea8990;
+	background-image : url("image/shutdown.png");
+	background-size : contain;
 	font : 20px Roboto;
 }
 
@@ -53,11 +54,20 @@
 }
 
 .timer1{
-	background-color : #92ccdd;
+	background-image : url("image/noir_roi.png");
+	background-size : cover;
+	font : 40px Roboto;
+}
+
+.timer1_blanc{
+	background-image : url("image/noir_roi.png");
+	background-size : cover;
 	font : 40px Roboto;
 }
 
 .timer2{
-	background-color : #c7eff0;
+	background-image : url("image/noir_reine.png");
+	background-size : contain;
+	background-repeat : no-repeat;
 	font : 40px Roboto;
 }
