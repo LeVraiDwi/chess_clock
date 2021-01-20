@@ -512,8 +512,7 @@ void	ft_minus_min(GtkWidget *objet, gpointer data)
 	char	str[15];
 
 	game = (s_game *)data;
-	printf("click\n");
-	if (game->time - 60 >= 0)
+	if (game->time >= 60)
 	{
 		game->time -= 60;
 		sprintf(str, "%2.2i", (int)(game->time / 60));
@@ -528,7 +527,7 @@ void	ft_minus_second(GtkWidget *objet, gpointer data)
 	char	str[15];
 
 	game = (s_game *)data;
-	if (game->time - 1 >= 0)
+	if (game->time > 0)
 	{
 		game->time -= 1;
 		sprintf(str, "%2.2i", (int)(game->time % 60));
@@ -569,8 +568,10 @@ void	ft_leave_custom(GtkWidget *objet, gpointer data)
 	{
 		game->game = 0;
 		game->pause = 0;
-		g_timer_destroy(game->timer1);
-		g_timer_destroy(game->timer2);
+		if (game->timer1 != 0)
+			g_timer_destroy(game->timer1);
+		if (game->timer2 != 0)
+			g_timer_destroy(game->timer2);
 		game->timer1 = 0;
 		game->timer2 = 0;
 	}
