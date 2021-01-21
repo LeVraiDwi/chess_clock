@@ -18,7 +18,7 @@ typedef struct	t_game
 	GtkWidget	*window_custom;
 	GtkWidget	*grid;
 	GtkWidget	*grid_custom;
-	GtkWidget	*button[5];
+	GtkWidget	*button[6];
 	GtkWidget	*menu_button;
 	GtkWidget	*popover;
 	GtkWidget	*label_custom[3];

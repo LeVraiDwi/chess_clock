@@ -36,13 +36,14 @@
 }
 
 .leave{
-	background-image : url("image/button(3).png");
+	background-image : url("image/button(5).png");
 	background-size : contain;
+	background-repeat : no-repeat;
 	font : 20px Roboto;
 }
 
 .leave:hover{
-	background-image : url("image/button(4).png");
+	background-image : url("image/button(.png");
 	background-size : contain;
 }
 

@@ -25,6 +25,9 @@ void	ft_creat_custom(s_game *game)
 	game->grid_custom = gtk_grid_new();
 	//ajout de la grille
 	gtk_container_add(GTK_CONTAINER(game->window_custom), GTK_WIDGET(game->grid_custom));
+	//creation des mod de jeu
+	button = 
+	//creation du menu custom
 	//creation des label
 	game->label_custom[0] = gtk_label_new("00");
 	button = 0;
