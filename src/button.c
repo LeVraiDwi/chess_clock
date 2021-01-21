@@ -6,6 +6,8 @@ void	ft_init_button(GtkWidget *button[])
 	button[1] = 0;
 	button[2] = 0;
 	button[3] = 0;
+	button[4] = 0;
+	button[5] = 0;
 }
 
 void	ft_creat_button(GtkWidget *button[])
@@ -26,16 +28,18 @@ void	ft_creat_button(GtkWidget *button[])
 	gtk_style_context_add_class(context, "timer2");
 	button[4] = gtk_button_new_with_label("reset");
 	gtk_style_context_add_class(context, "reset");
+	button[5] = gtk_button_new_with_label("mode");
+	gtk_style_context_add_class(context, "reset");
 }
 
 void	ft_creat_grid_timer(s_game *game)
 {
 	gtk_grid_set_row_homogeneous(GTK_GRID(game->grid), 1);
 	gtk_grid_set_column_homogeneous(GTK_GRID(game->grid), 1);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[0], 1, 1, 1, 2);
-	gtk_grid_attach(GTK_GRID(game->grid), game->menu_button, 16, 1, 4, 1);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[1], 1, 20, 10, 1);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[0], 0, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[1], 0, 20, 10, 1);
 	gtk_grid_attach(GTK_GRID(game->grid), game->button[4], 10, 20, 10, 1);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[2], 1, 1, 10, 20);
-	gtk_grid_attach(GTK_GRID(game->grid), game->button[3], 10, 1, 10, 20);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[5], 19, 0, 1, 1);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[2], 0, 0, 10, 20);
+	gtk_grid_attach(GTK_GRID(game->grid), game->button[3], 10, 0, 10, 20);
 }

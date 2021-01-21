@@ -489,6 +489,7 @@ void	ft_rapid_5(GtkWidget *objet, gpointer data)
 void	ft_custom(GtkWidget *objet, gpointer data)
 {
 	s_game	*game;
+	GtkWidget *grid;
 
 	game = (s_game *)data;
 	game->time = 0;
@@ -501,10 +502,15 @@ void	ft_custom(GtkWidget *objet, gpointer data)
 		else
 			g_timer_stop(game->timer2);
 	}
+	grid = 0;
+	grid = gtk_grid_new();
 	game->window_custom = gtk_window_new(GTK_WINDOW_POPUP);
 	gtk_window_set_transient_for(GTK_WINDOW(game->window_custom), GTK_WINDOW(game->window));
 	gtk_window_set_position(GTK_WINDOW(game->window_custom), GTK_WIN_POS_CENTER_ON_PARENT);
-	ft_creat_custom(game);
+	gtk_container_add(GTK_CONTAINER(game->window_custom), GTK_WIDGET(grid));
+	gtk_grid_set_column_spacing(GTK_GRID(grid), 4);
+	ft_menu(game, grid);
+	ft_creat_custom(game, grid);
 	gtk_widget_show_all(game->window_custom);
 	gtk_main();
 }

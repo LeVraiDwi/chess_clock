@@ -78,8 +78,8 @@ void	ft_leave_custom(GtkWidget *objet, gpointer data);
 //menu.c
 void	ft_signal_timer(s_game *game);
 void	ft_creat_menu(s_game *game);
-void	ft_menu(s_game *game);
-void	ft_creat_custom(s_game *game);
+void	ft_menu(s_game *game, GtkWidget *grid);
+void	ft_creat_custom(s_game *game, GtkWidget *grid);
 //style.c
 void	ft_set_style(s_game *game);
 void	ft_init_style(s_style *style);
