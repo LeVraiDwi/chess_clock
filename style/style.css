@@ -55,16 +55,17 @@
 	background-color : #98fe98;
 }
 
-.timer1{
-	background-image : url("image/noir_roi.png");
+.timer_b{
+	background-color : #000000;
 	background-size : cover;
 	font : 40px Roboto;
+	color : #ffffff;
 }
 
-.timer1_blanc{
-	background-image : url("image/blanc_roi.png");
-	background-size : cover;
+.timer_n{
+	background-color : #ffffff;
 	font : 40px Roboto;
+	color : #000000;
 }
 
 .timer2{

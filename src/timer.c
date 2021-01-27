@@ -53,3 +53,8 @@ void	ft_creat_timer(s_game *game)
 	ft_creat_menu(game);
 	gtk_widget_show_all(game->window);
 }
+
+void	ft_redraw_timer(s_game *game)
+{
+	GtkStyleContext *context;
+}

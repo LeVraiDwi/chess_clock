@@ -4,6 +4,8 @@
 #	include	<gtk/gtk.h>
 #	include <stdlib.h>
 #	include	<pthread.h>
+#	define	TIMER_B "time_blanc"
+#	define	TIMER_N "timer_noir"
 
 typedef	struct	t_style
 {
@@ -27,6 +29,7 @@ typedef struct	t_game
 	unsigned int	pause;
 	unsigned int	time;
 	unsigned int	timeb;
+	int		timer_state;
 	gdouble		start1;
 	gdouble		start2;
 	gdouble		player1;
