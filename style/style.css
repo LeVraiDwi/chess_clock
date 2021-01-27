@@ -10,7 +10,7 @@
 
 .blitz{
 	background-color : #c9fbf0;
-	font : 20px Roboto;
+	font : 20px radioland;
 }
 
 .blitz:hover{
@@ -19,7 +19,7 @@
 
 .rapid{
 	background-color : #fbf9d3;
-	font : 20px Roboto;
+	font : 20px radioland;
 }
 
 .rapid:hover{
@@ -28,7 +28,7 @@
 
 .custom{
 	background-color : #fcc6bf;
-	font : 20px Roboto;
+	font : 20px radioland;
 }
 
 .custom:hover{
@@ -39,7 +39,9 @@
 	background-image : url("image/button(5).png");
 	background-size : contain;
 	background-repeat : no-repeat;
-	font : 20px Roboto;
+	font : 20px radioland;
+	border-style: solid;
+	border-color: #ffffff;
 }
 
 .leave:hover{
@@ -48,29 +50,48 @@
 }
 
 .play{
-	background-color : #77dd77;
+	background-image : linear-gradient(to bottom right, #1e1e1e, black);
+	font : 20px radioland;
+	color : #ffffff;
+	border-color: #000000;
 }
 
 .play:hover{
-	background-color : #98fe98;
-}
-
-.timer_b{
-	background-color : #000000;
-	background-size : cover;
-	font : 40px Roboto;
-	color : #ffffff;
-}
-
-.timer_n{
-	background-color : #ffffff;
-	font : 40px Roboto;
+	background-image : linear-gradient(to bottom left, white, white);
 	color : #000000;
 }
 
-.timer2{
-	background-image : url("image/noir_reine.png");
-	background-size : contain;
-	background-repeat : no-repeat;
-	font : 40px Roboto;
+.reset{
+	background-image : linear-gradient(to bottom left, #1e1e1e, black);
+	font : 20px radioland;
+	color : #ffffff;
+	border-color: #000000;
+}
+
+.reset:hover{
+	background-image : linear-gradient(to bottom left, white, white);
+	color : #000000;
+}
+
+.mod{
+	background-color : #00FF00;
+}
+
+.timer_n{
+	background-color : #000000;
+	font : 120px radioland;
+	color : #ffffff;
+	border-color: #000000;
+}
+
+.timer_b{
+	background-color : #ffffff;
+	font : 120px radioland;
+	color : #000000;
+	border-color: #ffffff;
+}
+
+.mid_button{
+	background-color : #282928;
+	border-color: #000000;
 }
