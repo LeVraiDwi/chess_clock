@@ -16,10 +16,10 @@ void	ft_creat_button(GtkWidget *button[])
 
 	button[0] = gtk_button_new();
 	context = gtk_widget_get_style_context(button[0]);
-	gtk_style_context_add_class(context, "mid_button");
+	gtk_style_context_add_class(context, "leave");
 	button[1] = gtk_button_new();
 	context = gtk_widget_get_style_context(button[1]);
-	gtk_style_context_add_class(context, "mid_button");
+	gtk_style_context_add_class(context, "play");
 	button[2] = gtk_button_new_with_label("00 : 00");
 	context = gtk_widget_get_style_context(button[2]);
 	gtk_style_context_add_class(context, "timer_b");
@@ -28,10 +28,10 @@ void	ft_creat_button(GtkWidget *button[])
 	gtk_style_context_add_class(context, "timer_n");
 	button[4] = gtk_button_new();
 	context = gtk_widget_get_style_context(button[4]);
-	gtk_style_context_add_class(context, "mid_button");
+	gtk_style_context_add_class(context, "reset");
 	button[5] = gtk_button_new();
 	context = gtk_widget_get_style_context(button[5]);
-	gtk_style_context_add_class(context, "mid_button");
+	gtk_style_context_add_class(context, "mod");
 }
 
 void	ft_creat_grid_timer(s_game *game)

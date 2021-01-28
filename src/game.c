@@ -15,6 +15,7 @@ void ft_init_game(s_game *game)
 	game->player2 = 0;
 	game->tbonus = 0;
 	game->window = 0;
+	game->window_custom = 0;
 	game->grid = 0;
 	game->grid_custom = 0;
 	game->popover = 0;

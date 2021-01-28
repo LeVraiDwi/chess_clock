@@ -36,33 +36,35 @@
 }
 
 .leave{
-	background-image : url("image/button(5).png");
-	background-size : contain;
-	background-repeat : no-repeat;
+	background-image : linear-gradient(to top, #ffffff, #cccccc);
+	background-color : #000000;
 	font : 20px radioland;
-	border-style: solid;
-	border-color: #ffffff;
+	border-color: #000000;
 }
 
 .leave:hover{
-	background-image : url("image/button(.png");
-	background-size : contain;
+	background-image : linear-gradient(to top, #ffffff, #ffffff);
 }
 
 .play{
-	background-image : linear-gradient(to bottom right, #1e1e1e, black);
+	background-image : url("bouton/noir_play.png");
 	font : 20px radioland;
 	color : #ffffff;
 	border-color: #000000;
 }
 
 .play:hover{
-	background-image : linear-gradient(to bottom left, white, white);
+	background-image : linear-gradient(to bottom left, #000000, #000000);
 	color : #000000;
 }
 
+.pause{
+	background-image : url("bouton/noir_pause.png");
+	font : 20px radioland;
+}
+
 .reset{
-	background-image : linear-gradient(to bottom left, #1e1e1e, black);
+	background-image : linear-gradient(to top, #ffffff, #cccccc);
 	font : 20px radioland;
 	color : #ffffff;
 	border-color: #000000;
@@ -74,7 +76,12 @@
 }
 
 .mod{
-	background-color : #00FF00;
+	background-image : url("bouton/noir_mod.png");
+	border-color: #000000;
+}
+
+.mod:hover{
+	background-image : linear-gradient(to bottom left, #000000, #000000);
 }
 
 .timer_n{
