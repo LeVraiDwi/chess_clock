@@ -1,87 +1,60 @@
 
-.bullet{
-	background-color : #d2e0fa;
-	font : 20px Roboto;
-}
-
-.bullet:hover{
-	background-color : #d4e4f6;
-}
-
-.blitz{
-	background-color : #c9fbf0;
-	font : 20px radioland;
-}
-
-.blitz:hover{
-	background-color : #cfffed;
-}
-
-.rapid{
-	background-color : #fbf9d3;
-	font : 20px radioland;
-}
-
-.rapid:hover{
-	background-color : #f6f6d9;
-}
-
-.custom{
-	background-color : #fcc6bf;
-	font : 20px radioland;
-}
-
-.custom:hover{
-	background-color : #fccbc2;
-}
-
 .leave{
-	background-image : linear-gradient(to top, #ffffff, #cccccc);
-	background-color : #000000;
-	font : 20px radioland;
+	background-image : url("bouton/eteint.png");
+	background-color : #ffffff;
 	border-color: #000000;
 }
 
 .leave:hover{
-	background-image : linear-gradient(to top, #ffffff, #ffffff);
+	background-image : url("bouton/eteint.png");
+	background-color : #dddddd;
+	color : #000000;
 }
 
 .play{
-	background-image : url("bouton/noir_play.png");
-	font : 20px radioland;
-	color : #ffffff;
+	background-image : url("bouton/play.png");
+	background-color : #282928;
 	border-color: #000000;
 }
 
 .play:hover{
-	background-image : linear-gradient(to bottom left, #000000, #000000);
-	color : #000000;
+	background-image : url("bouton/play.png");
+	background-color : #111111;
 }
 
 .pause{
-	background-image : url("bouton/noir_pause.png");
-	font : 20px radioland;
+	background-image : url("bouton/pause.png");
+	background-color : #282928;
+	border-color: #000000;
+}
+
+.pause:hover{
+	background-image : url("bouton/play.png");
+	background-color : #111111;
+	color : #000000;
 }
 
 .reset{
-	background-image : linear-gradient(to top, #ffffff, #cccccc);
-	font : 20px radioland;
-	color : #ffffff;
+	background-image : url("bouton/reset.png");
+	background-color : #ffffff;
 	border-color: #000000;
 }
 
 .reset:hover{
-	background-image : linear-gradient(to bottom left, white, white);
+	background-image : url("bouton/reset.png");
+	background-color : #dddddd;
 	color : #000000;
 }
 
 .mod{
-	background-image : url("bouton/noir_mod.png");
+	background-image : url("bouton/mod.png");
+	background-color : #282928;
 	border-color: #000000;
 }
 
 .mod:hover{
-	background-image : linear-gradient(to bottom left, #000000, #000000);
+	background-image : url("bouton/mod.png");
+	background-color : #111111;
 }
 
 .timer_n{
@@ -98,7 +71,19 @@
 	border-color: #ffffff;
 }
 
-.mid_button{
+.mod_menu{
+	background-color : #282928;
+	border-color: #000000;
+	margin-top : 5px;
+	font : 12px roboto;
+	color : #ffffff;
+}
+
+.mod_menu:hover{
+	background-color : #111111;
+}
+
+.mod_ligne{
 	background-color : #282928;
 	border-color: #000000;
 }
