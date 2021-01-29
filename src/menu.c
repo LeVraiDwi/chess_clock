@@ -24,19 +24,25 @@ void	ft_creat_custom(s_game *game, GtkWidget *grid)
 
 	//creation des label
 	game->label_custom[0] = gtk_label_new("00");
+	context = gtk_widget_get_style_context(game->label_custom[0]);
+	gtk_style_context_add_class(context, "mod_label");
 	button = 0;
 	button = gtk_label_new(":");
+	context = gtk_widget_get_style_context(button);
+	gtk_style_context_add_class(context, "mod_label");
 	gtk_grid_attach(GTK_GRID(grid), game->label_custom[0], 6, 2, 1, 1);
 	game->label_custom[1] = gtk_label_new("00");
+	context = gtk_widget_get_style_context(game->label_custom[1]);
+	gtk_style_context_add_class(context, "mod_label");
 	gtk_grid_attach(GTK_GRID(grid), game->label_custom[1], 8, 2, 1, 1);
 	gtk_grid_attach(GTK_GRID(grid), button, 7, 2, 1, 1);
 	button = 0;
-	button = gtk_label_new("temps joueur:\n");
+	button = gtk_label_new("temps joueur:");
 	context = gtk_widget_get_style_context(button);
 	gtk_style_context_add_class(context, "mod_stitre");
 	gtk_grid_attach(GTK_GRID(grid), button, 6, 0, 3, 1);
 	button = 0;
-	button = gtk_label_new("temps bonus:\n");
+	button = gtk_label_new("temps bonus:");
 	context = gtk_widget_get_style_context(button);
 	gtk_style_context_add_class(context, "mod_stitre");
 	gtk_grid_attach(GTK_GRID(grid), button, 6, 4, 3, 1);
@@ -44,44 +50,46 @@ void	ft_creat_custom(s_game *game, GtkWidget *grid)
 	button = gtk_button_new_with_label("+");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_plus_min), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
+	gtk_style_context_add_class(context, "mod_button");
 	gtk_grid_attach(GTK_GRID(grid), button, 6, 1, 1, 1);
 	button = 0;
 	button = gtk_button_new_with_label("-");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_minus_min), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
+	gtk_style_context_add_class(context, "mod_button");
 	gtk_grid_attach(GTK_GRID(grid), button, 6, 3, 1, 1);
 	button = 0;
 	button = gtk_button_new_with_label("+");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_plus_second), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
+	gtk_style_context_add_class(context, "mod_button");
 	gtk_grid_attach(GTK_GRID(grid), button, 8, 1, 1, 1);
 	button = 0;
 	button = gtk_button_new_with_label("-");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_minus_second), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
+	gtk_style_context_add_class(context, "mod_button");
 	gtk_grid_attach(GTK_GRID(grid), button, 8, 3, 1, 1);
 	button = 0;
 	button = gtk_button_new_with_label(" go! ");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_leave_custom), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
-	gtk_grid_attach(GTK_GRID(grid), button, 6, 9, 3, 1);
+	gtk_style_context_add_class(context, "mod_go");
+	gtk_grid_attach(GTK_GRID(grid), button, 6, 8, 3, 1);
 	button = 0;
 	game->label_custom[2] = gtk_label_new("00 : 00");
+	context = gtk_widget_get_style_context(game->label_custom[2]);
+	gtk_style_context_add_class(context, "mod_label");
 	gtk_grid_attach(GTK_GRID(grid), game->label_custom[2], 6, 6, 3, 1);
 	button = gtk_button_new_with_label("+");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_plus_bonus), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
+	gtk_style_context_add_class(context, "mod_button");
 	gtk_grid_attach(GTK_GRID(grid), button, 6, 5, 3, 1);
 	button = gtk_button_new_with_label("-");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_minus_bonus), (gpointer)game);
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_menu");
+	gtk_style_context_add_class(context, "mod_button");
 	gtk_grid_attach(GTK_GRID(grid), button, 6, 7, 3, 1);
 	button = 0;
 	button = gtk_label_new(" ");
@@ -89,8 +97,8 @@ void	ft_creat_custom(s_game *game, GtkWidget *grid)
 	gtk_style_context_add_class(context, "mod_ligne");
 	gtk_grid_attach(GTK_GRID(grid), button, 5, 0, 1, 10);
 	button = 0;
-	button = gtk_label_new(" ");
-	gtk_grid_attach(GTK_GRID(grid), button, 6, 8, 3, 1);
+//	button = gtk_label_new(" ");
+//	gtk_grid_attach(GTK_GRID(grid), button, 6, 8, 3, 1);
 }
 
 void	ft_menu(s_game *game, GtkWidget *grid)
@@ -99,7 +107,7 @@ void	ft_menu(s_game *game, GtkWidget *grid)
 	GtkStyleContext	*context;
 
 	menu_item = 0;
-	menu_item = gtk_label_new("Mode de jeu: \n");
+	menu_item = gtk_label_new("Mode de jeu: ");
 	context = gtk_widget_get_style_context(menu_item);
 	gtk_style_context_add_class(context, "mod_titre");
 	gtk_grid_attach(GTK_GRID(grid), menu_item, 0, 0, 1, 1);
@@ -159,17 +167,17 @@ void	ft_menu(s_game *game, GtkWidget *grid)
 	g_signal_connect(G_OBJECT(menu_item), "clicked", G_CALLBACK(ft_rapid_3), (gpointer)game);
 	context = gtk_widget_get_style_context(menu_item);
 	gtk_style_context_add_class(context, "mod_menu");
-	gtk_grid_attach(GTK_GRID(grid), menu_item, 0, 9, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), menu_item, 1, 1, 1, 1);
 	menu_item = 0;
 	menu_item = gtk_button_new_with_label("30 minutes + 0 seconde");
 	g_signal_connect(G_OBJECT(menu_item), "clicked", G_CALLBACK(ft_rapid_4), (gpointer)game);
 	context = gtk_widget_get_style_context(menu_item);
 	gtk_style_context_add_class(context, "mod_menu");
-	gtk_grid_attach(GTK_GRID(grid), menu_item, 1, 1, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), menu_item, 1, 2, 1, 1);
 	menu_item = 0;
 	menu_item = gtk_button_new_with_label("30 minutes + 20 secondes");
 	g_signal_connect(G_OBJECT(menu_item), "clicked", G_CALLBACK(ft_rapid_5), (gpointer)game);
 	context = gtk_widget_get_style_context(menu_item);
 	gtk_style_context_add_class(context, "mod_menu");
-	gtk_grid_attach(GTK_GRID(grid), menu_item, 1, 2, 1, 1);
+	gtk_grid_attach(GTK_GRID(grid), menu_item, 1, 3, 1, 1);
 }
