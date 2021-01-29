@@ -40,12 +40,14 @@ void	ft_creat_custom(s_game *game, GtkWidget *grid)
 	button = gtk_label_new("temps joueur:");
 	context = gtk_widget_get_style_context(button);
 	gtk_style_context_add_class(context, "mod_stitre");
-	gtk_grid_attach(GTK_GRID(grid), button, 6, 0, 3, 1);
+	gtk_label_set_xalign(GTK_LABEL(button), 0.7);
+	gtk_grid_attach(GTK_GRID(grid), button, 5, 0, 4, 1);
 	button = 0;
 	button = gtk_label_new("temps bonus:");
 	context = gtk_widget_get_style_context(button);
-	gtk_style_context_add_class(context, "mod_stitre");
-	gtk_grid_attach(GTK_GRID(grid), button, 6, 4, 3, 1);
+	gtk_style_context_add_class(context, "mod_stitre2");
+	gtk_label_set_xalign(GTK_LABEL(button), 0.6);
+	gtk_grid_attach(GTK_GRID(grid), button, 5, 4, 4, 1);
 	button = 0;
 	button = gtk_button_new_with_label("+");
 	g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(ft_plus_min), (gpointer)game);
@@ -110,7 +112,8 @@ void	ft_menu(s_game *game, GtkWidget *grid)
 	menu_item = gtk_label_new("Mode de jeu: ");
 	context = gtk_widget_get_style_context(menu_item);
 	gtk_style_context_add_class(context, "mod_titre");
-	gtk_grid_attach(GTK_GRID(grid), menu_item, 0, 0, 1, 1);
+	gtk_label_set_xalign(GTK_LABEL(menu_item), 0.05);
+	gtk_grid_attach(GTK_GRID(grid), menu_item, 0, 0, 5, 1);
 	//bullet
 	menu_item = 0;
 	menu_item = gtk_button_new_with_label("1 minute + 0 seconde");

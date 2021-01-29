@@ -72,9 +72,11 @@
 }
 
 .mod_menu{
+	margin-left : 2px;
 	background-color : #282928;
 	border-color: #000000;
-	margin-top : 5px;
+	margin-bottom : 2px;
+	margin-top : 2px;
 	font : 12px roboto;
 	color : #ffffff;
 }
@@ -89,13 +91,50 @@
 }
 
 .mod_button{
+	margin-right : 2px;
+	background-color : #282928;
+	font : 15px Rota-Bold;
+	color : #ffffff;
+}
+
+.mod_button:hover{
+	background-color : #111111;
 }
 
 .mod_titre{
+	font : 24px Rota-Bold;
+	color : #ffffff;
+	background-color : #282928;
+	margin-bottom : 3px;
 }
 
 .mod_stitre{
+	font : 15px Rota-Bold;
+	color : #ffffff;
+	background-color : #282928;
+	margin-bottom : 5px;
+}
+
+.mod_stitre2{
+	font : 15px Rota-Bold;
+	color : #ffffff;
+	background-color : #282928;
+	margin-bottom : 5px;
+	margin-top : 5px;
 }
 
 .mod_go{
+	margin-right : 2px;
+	margin-top : 5px;
+	background-color : #282928;
+	font : 15px Rota-Bold;
+	color : #ffffff;
+}
+
+.mod_go:hover{
+	background-color : #111111;
+}
+
+.mod_label{
+	font : 16px radioland;
 }
