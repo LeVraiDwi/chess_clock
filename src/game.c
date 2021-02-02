@@ -19,11 +19,18 @@ void ft_init_game(s_game *game)
 	game->grid = 0;
 	game->grid_custom = 0;
 	game->popover = 0;
-	game->time = 0;
-	game->timeb = 0;
+	game->time[0] = 0;
+	game->time[1] = 0;
+	game->timeb[0] = 0;
+	game->timeb[1] = 0;
 	game->label_custom[0] = 0;
 	game->label_custom[1] = 0;
 	game->label_custom[2] = 0;
+	game->label_custom[3] = 0;
+	game->label_custom[4] = 0;
+	game->label_custom[5] = 0;
+	game->label_custom[6] = 0;
+	game->label_custom[7] = 0;
 }
 
 void ft_creat_game(s_game *game)
