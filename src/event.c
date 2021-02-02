@@ -62,7 +62,7 @@ void	ft_button_2(GtkWidget *objet, gpointer data)
 			context = gtk_widget_get_style_context(game->button[1]);
 			gtk_style_context_remove_class(context, "play");
 			gtk_style_context_add_class(context, "pause");
-			g_timeout_add_full(G_PRIORITY_HIGH, 250, (GSourceFunc)ft_timer, (gpointer)game, 0);
+			g_timeout_add_full(G_PRIORITY_HIGH, 100, (GSourceFunc)ft_timer, (gpointer)game, 0);
 		}
 	}
 	else if (game->game == 1)
@@ -134,7 +134,7 @@ void	ft_button_3(GtkWidget *objet, gpointer data)
 			context = gtk_widget_get_style_context(game->button[1]);
 			gtk_style_context_remove_class(context, "play");
 			gtk_style_context_add_class(context, "pause");
-			g_timeout_add_full(G_PRIORITY_HIGH, 250, (GSourceFunc)ft_timer, (gpointer)game, 0);
+			g_timeout_add_full(G_PRIORITY_HIGH, 100, (GSourceFunc)ft_timer, (gpointer)game, 0);
 		}
 	}
 	else if (game->game == 1)

@@ -93,7 +93,8 @@
 .mod_button{
 	margin-right : 2px;
 	background-color : #282928;
-	font : 15px Rota-Bold;
+	font : 15px arial;
+	font-weight : bold;
 	color : #ffffff;
 }
 
@@ -127,7 +128,7 @@
 	margin-right : 2px;
 	margin-top : 5px;
 	background-color : #282928;
-	font : 15px Rota-Bold;
+	font : 15px radioland;
 	color : #ffffff;
 }
 
