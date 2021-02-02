@@ -10,8 +10,10 @@ void	ft_custom(GtkWidget *objet, gpointer data)
 	game = (s_game *)data;
 	if (game->window_custom == 0)
 	{
-		game->time = 0;
-		game->timeb = 0;
+		game->time[0] = 0;
+		game->timeb[0] = 0;
+		game->time[1] = 0;
+		game->timeb[1] = 0;
 		if (game->game == 1 && game->pause == 0)
 		{
 			context = gtk_widget_get_style_context(game->button[1]);

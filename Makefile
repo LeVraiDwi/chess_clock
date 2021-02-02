@@ -4,7 +4,8 @@ SRC_PATH = ./src
 
 SRC_NAME =	 style.c button.c game.c\
 		 main.c menu.c timer.c\
-		 remove.c event.c\
+		 remove.c event_timer.c event_menu.c\
+		 event_custom.c\
 
 CFLAGS = -Wall -Wextra -Werror
 
