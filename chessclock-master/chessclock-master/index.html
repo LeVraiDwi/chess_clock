@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chess Clock</title>
+  <meta charset='utf-8' />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 40vh 1fr 40vh;
+    }
+    .clock {
+      font-size: 20vh;
+    }
+    .timeIsUp {
+      background-color: red;
+    }
+
+    #clock2 {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <button class='clock' id='clock1'></button>
+    <div class='meta'></div>
+    <button class='clock' id='clock2'></button>
+  </div>
+
+  <script>
+    let time1 = 300000
+    let time2 = 300000
+
+    const $clock1 = document.getElementById('clock1')
+    const $clock2 = document.getElementById('clock2')
+
+    let timer
+
+    $clock1.addEventListener('click', () => {
+      activateClock(2)
+    })
+
+    $clock2.addEventListener('click', () => {
+      activateClock(1)
+    })
+
+    function formatTime (time) {
+      const minutes = Math.floor(time / 60000)
+      const seconds = Math.floor((time - (minutes * 60000)) / 1000)
+      return minutes + ':' + (seconds > 9 ? seconds : '0' + seconds)
+    }
+
+    function activateClock (clock) {
+      window.clearTimeout(timer)
+      if (clock === 1) {
+        timer = window.setTimeout(() => {
+          time1 = time1 - 250
+          $clock1.innerHTML = formatTime(time1)
+          if (time1 !== 0) {
+            activateClock(1)
+          } else {
+            $clock1.classList.add('timeIsUp')
+          }
+        }, 250)
+      } else if (clock === 2) {
+        timer = window.setTimeout(() => {
+          time2 = time2 - 250;
+          $clock2.innerHTML = formatTime(time2)
+          if (time2 !== 0) {
+            activateClock(2)
+          } else {
+            $clock2.classList.add('timeIsUp')
+          }
+        }, 250)
+      }
+    }
+
+    $clock1.innerHTML = formatTime(time1)
+    $clock2.innerHTML = formatTime(time2)
+
+  </script>
+</body>
+</html>
