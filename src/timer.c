@@ -37,9 +37,13 @@ void	ft_add_tbonus(gdouble tbonus, GtkWidget *button, GTimer *timer, gdouble pla
 	char	str[20];
 	gdouble	player_time;
 
-	player += tbonus;
-	sprintf(str, "%2.2i : %2.2i", (int)(player_time / 60), ((int)(player_time / 1)) % 60);
-	gtk_button_set_label(GTK_BUTTON(button), str);
+	if (tbonus != 0)
+	{
+		player += tbonus;
+		player_time = player - g_timer_elapsed(timer, 0);
+		sprintf(str, "%2.2i : %2.2i", (int)(player_time / 60), ((int)(player_time / 1)) % 60);
+		gtk_button_set_label(GTK_BUTTON(button), str);
+	}
 }
 
 void	ft_creat_timer(s_game *game)

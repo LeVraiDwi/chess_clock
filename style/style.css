@@ -125,10 +125,10 @@
 }
 
 .mod_go{
+	font : 15px CodaCaption;
 	margin-right : 2px;
 	margin-top : 5px;
 	background-color : #282928;
-	font : 15px radioland;
 	color : #ffffff;
 }
 

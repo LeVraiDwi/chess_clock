@@ -312,7 +312,7 @@ void	ft_leave_custom(GtkWidget *objet, gpointer data)
 	game->tbonus[1] = (gdouble)game->timeb[1];
 	sprintf(str, "%2.2i : %2.2i", (int)(game->player1 / 60), (int)(game->player1) % 60);
 	gtk_button_set_label(GTK_BUTTON(game->button[2]), str);
-	sprintf(str, "%2.2i : %2.2i", (int)(game->player1 / 60), (int)(game->player1) % 60);
+	sprintf(str, "%2.2i : %2.2i", (int)(game->player2 / 60), (int)(game->player1) % 60);
 	gtk_button_set_label(GTK_BUTTON(game->button[3]), str);
 	gtk_widget_destroy(game->window_custom);
 	game->window_custom = 0;
