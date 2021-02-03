@@ -3,6 +3,7 @@
 #	include	<time.h>
 #	include	<gtk/gtk.h>
 #	include <stdlib.h>
+#	include	<wiringPi.h>
 #	include	<pthread.h>
 #	define	TIMER_B "time_blanc"
 #	define	TIMER_N "timer_noir"
@@ -24,6 +25,7 @@ typedef struct	t_game
 	GtkWidget	*menu_button;
 	GtkWidget	*popover;
 	GtkWidget	*label_custom[8];
+	pthread_t	*thread;
 	int		player;
 	unsigned int	game;
 	unsigned int	pause;
@@ -50,6 +52,8 @@ int	ft_timer(gpointer data);
 void	ft_init_button(GtkWidget *button[]);
 void	ft_creat_button(GtkWidget *button[]);
 void	ft_creat_box_timer(s_game *game);
+void	ft_read_button(gpointer *game);
+void	ft_init_wiring(void);
 //game.c
 void	ft_init_game(s_game *game);
 void	ft_creat_game(s_game *game);

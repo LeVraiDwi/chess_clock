@@ -45,3 +45,22 @@ void	ft_creat_grid_timer(s_game *game)
 	gtk_grid_attach(GTK_GRID(game->grid), game->button[2], 0, 0, 10, 20);
 	gtk_grid_attach(GTK_GRID(game->grid), game->button[3], 11, 0, 10, 20);
 }
+
+void ft_read_button(gpointer *data)
+{
+	s_game	*game;
+
+	game = (s_game *)data;
+	if (digitalRead(0) == 0)
+		game->player *= 1;
+	if (digitalRead(2) == 0)
+		game->player *= -1;
+	while (digitalRead(0) == 0 || digitalRead(2) == 0);
+}
+
+void ft_init_wiring(void)
+{
+	wiringPiSetup();
+	pinMode(0, INPUT);
+	pinMode(2, INPUT);
+}

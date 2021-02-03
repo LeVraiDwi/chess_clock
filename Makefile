@@ -11,7 +11,9 @@ CFLAGS = -Wall -Wextra -Werror
 
 GTK = `pkg-config --cflags --libs gtk+-3.0`
 
-PTHREAD = `-lpthread -D_REENTRANT`
+PTHREAD = -lpthread -D_REENTRANT
+
+WIRINGPI = -lwiringPi
 
 OBJS = ${SRCS:.c=.o}
 
@@ -24,10 +26,10 @@ CC = clang
 RM = rm -f
 
 .c.o: 
-			${CC} ${HEADER} -c $< -o $@ ${GTK}
+			${CC} ${HEADER} ${WIRING} -c $< -o $@ ${GTK}
 
 ${NAME}:	${OBJS}
-		gcc -o ${NAME} ${HEADER} ${OBJS} ${GTK}
+		gcc -o ${NAME} ${HEADER} -lwiringPi ${OBJS} ${GTK}
 
 all:		${NAME}
 

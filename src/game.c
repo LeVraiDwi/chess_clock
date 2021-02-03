@@ -4,6 +4,7 @@ void ft_init_game(s_game *game)
 {
 	game->window = 0;
 	ft_init_button(game->button);
+	game->thread = 0;
 	game->player = 0;
 	game->game = 0;
 	game->pause = 0;
@@ -13,7 +14,8 @@ void ft_init_game(s_game *game)
 	game->timer2 = 0;
 	game->player1 = 0;
 	game->player2 = 0;
-	game->tbonus = 0;
+	game->tbonus[0] = 0;
+	game->tbonus[1] = 0;
 	game->window = 0;
 	game->window_custom = 0;
 	game->grid = 0;
