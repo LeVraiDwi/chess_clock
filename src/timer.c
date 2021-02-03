@@ -57,7 +57,28 @@ void	ft_creat_timer(s_game *game)
 	gtk_widget_show_all(game->window);
 }
 
-void	ft_redraw_timer(s_game *game)
+int	ft_redraw_timer(gpointer data)
 {
-	GtkStyleContext *context;
+	s_game	*game;
+	char	str[15];
+	int	playertime;
+
+	game = (s_game *)data;
+	if (game->player == 1)
+	{
+		playertime = game->player1 - g_timer_elapsed(game->timer1, 0);
+		if (playertime <= 0)
+			return (0);
+		sprintf(str, "%.2i : %.2i", (int)playertime / 60, (int)playertime % 60);
+		gtk_button_set_label(GTK_BUTTON(game->button[2]), str);
+	}
+	else
+	{
+		playertime = game->player2 - g_timer_elapsed(game->timer2, 0);
+		if (playertime <= 0)
+			return (0);
+		sprintf(str, "%.2i : %.2i", (int)playertime / 60, (int)playertime % 60);
+		gtk_button_set_label(GTK_BUTTON(game->button[3]), str);
+	}
+		return (1);
 }

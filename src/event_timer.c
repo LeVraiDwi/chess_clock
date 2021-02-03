@@ -49,69 +49,25 @@ void	ft_button_2(GtkWidget *objet, gpointer data)
 	GtkStyleContext	*context;
 
 	game = (s_game *)data;
-	if (game->game == 0)
+	if (game->game == 1 && game->player == 1)
 	{
-		if (game->start1 != 0 && game->start2 != 0)
-		{
-			game->game = 1;
-			game->pause = 0;
-			game->player = 1;
-			game->player1 = game->start1;
-			game->player2 = game->start2;
-			game->timer1 = g_timer_new();
-			context = gtk_widget_get_style_context(game->button[1]);
-			gtk_style_context_remove_class(context, "play");
-			gtk_style_context_add_class(context, "pause");
-			g_timeout_add_full(G_PRIORITY_HIGH, 100, (GSourceFunc)ft_read_button, (gpointer)game, 0);
-			g_timeout_add_full(G_PRIORITY_HIGH, 100, (GSourceFunc)ft_timer, (gpointer)game, 0);
-		}
+		g_timer_stop(game->timer1);
+		g_timer_continue(game->timer2);
+		game->player1 += game->tbonus[0];
+		game->player = -1;
+
 	}
-	else if (game->game == 1)
+	else if (game->game == 0)
 	{
-		if (game->pause == 0)
-		{
-			if (game->player == 1)
-			{
-				g_timer_stop(game->timer1);
-				ft_add_tbonus(game->tbonus[0], game->button[2], game->timer1, game->player1);
-				if (game->timer2 == 0)
-					game->timer2 = g_timer_new();
-				else
-					g_timer_continue(game->timer2);
-				
-			}
-			else if (game->player == -1)
-			{
-				g_timer_stop(game->timer2);
-				ft_add_tbonus(game->tbonus[1], game->button[3], game->timer2, game->player2);
-				if (game->timer1 == 0)
-					game->timer1 = g_timer_new();
-				else
-					g_timer_continue(game->timer1);
-			}
-			game->player = game->player * -1;
-		}
-		else if (game->pause == 1 && game->game == 1)
-		{
-			game->pause = 0;
-			context = gtk_widget_get_style_context(game->button[1]);
-			gtk_style_context_remove_class(context, "play");
-			gtk_style_context_add_class(context, "pause");
-			if (game->player == 1)
-			{
-				if (game->timer1 == 0)
-					game->timer1 = g_timer_new();
-				else
-					g_timer_continue(game->timer1);
-			}
-			else
-			{
-				if (game->timer2 == 0)
-					game->timer2 = g_timer_new();
-				else
-					g_timer_continue(game->timer2);
-			}
-		}
+		game->game = 1;
+		game->pause = 0;
+		game->player = 1;
+		game->player1 = game->start1;
+		game->player2 = game->start2;
+		game->timer2 = g_timer_new();
+		g_timer_stop(game->timer2);
+		game->timer1 = g_timer_new();
+		g_timeout_add_full(G_PRIORITY_HIGH, 250, (GSourceFunc)ft_redraw_timer, (gpointer)game, 0);
 	}
 }
 
@@ -122,68 +78,25 @@ void	ft_button_3(GtkWidget *objet, gpointer data)
 	GtkStyleContext	*context;
 
 	game = (s_game *)data;
-	if (game->game == 1)
+	if (game->game == 1 && game->player == 1)
 	{
-		if (game->pause == 0)
-		{
-			if (game->player == 1)
-			{
-				g_timer_stop(game->timer1);
-				ft_add_tbonus(game->tbonus[0], game->button[2], game->timer1, game->player1);
-				if (game->timer2 == 0)
-					game->timer2 = g_timer_new();
-				else
-					g_timer_continue(game->timer2);
-			}
-			else if (game->player == -1)
-			{
-				g_timer_stop(game->timer2);
-				ft_add_tbonus(game->tbonus[1], game->button[3], game->timer2, game->player2);
-				if (game->timer1 == 0)
-					game->timer1 = g_timer_new();
-				else
-					g_timer_continue(game->timer1);
-			}
-			game->player = game->player * -1;
-		}
-		else if (game->pause == 1 && game->game == 1)
-		{
-			game->pause = 0;
-			context = gtk_widget_get_style_context(game->button[1]);
-			gtk_style_context_remove_class(context, "play");
-			gtk_style_context_add_class(context, "pause");
-			if (game->player == 1)
-			{
-				if (game->timer1 == 0)
-					game->timer1 = g_timer_new();
-				else
-					g_timer_continue(game->timer1);
-			}
-			else
-			{
-				if (game->timer2 == 0)
-					game->timer2 = g_timer_new();
-				else
-					g_timer_continue(game->timer2);
-			}
-		}
+		g_timer_stop(game->timer2);
+		g_timer_continue(game->timer1);
+		game->player2 += game->tbonus[1];
+		game->player = 1;
+
 	}
 	else if (game->game == 0)
 	{
-		if (game->start1 != 0 || game->start2 != 0)
-		{
-			game->game = 1;
-			game->pause = 0;
-			game->player = -1;
-			game->player1 = game->start1;
-			game->player2 = game->start2;
-			game->timer2 = g_timer_new();
-			context = gtk_widget_get_style_context(game->button[1]);
-			gtk_style_context_remove_class(context, "play");
-			gtk_style_context_add_class(context, "pause");
-			g_timeout_add_full(G_PRIORITY_HIGH, 100, (GSourceFunc)ft_read_button, (gpointer)game, 0);
-			g_timeout_add_full(G_PRIORITY_HIGH, 100, (GSourceFunc)ft_timer, (gpointer)game, 0);
-		}
+		game->game = 1;
+		game->pause = 0;
+		game->player = 1;
+		game->player1 = game->start1;
+		game->player2 = game->start2;
+		game->timer1 = g_timer_new();
+		g_timer_stop(game->timer1);
+		game->timer2 = g_timer_new();
+		g_timeout_add_full(G_PRIORITY_HIGH, 250, (GSourceFunc)ft_redraw_timer, (gpointer)game, 0);
 	}
 }
 

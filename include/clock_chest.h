@@ -25,7 +25,6 @@ typedef struct	t_game
 	GtkWidget	*menu_button;
 	GtkWidget	*popover;
 	GtkWidget	*label_custom[8];
-	pthread_t	*thread;
 	int		player;
 	unsigned int	game;
 	unsigned int	pause;
@@ -103,4 +102,6 @@ void	ft_init_style(s_style *style);
 //util.c
 char	*ft_time(int n);
 char	*ft_itoa(int n);
+//main.c
+int	ft_redraw_timer(gpointer data);
 #endif
