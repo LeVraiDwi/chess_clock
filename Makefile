@@ -27,7 +27,7 @@ RM = rm -f
 			${CC} ${HEADER} -c $< -o $@ ${GTK}
 
 ${NAME}:	${OBJS}
-		gcc -o ${NAME} ${HEADER} ${OBJS} ${GTK}
+		gcc -o ${NAME} ${HEADER} ${OBJS} ${GTK} 
 
 all:		${NAME}
 
